@@ -35,11 +35,13 @@ lockout = False
 
 def led_on():
     global lockout
-    print("LED starting in 2 seconds")
-    sleep(2)
+    print("LED starting in 3 seconds. GET READY !!! \n")
+    sleep(3)
+    print("--- LED is ON ---")
     green_led.on()
     sleep(uniform(1, 5))
     green_led.off()
+    print("--- LED is OFF ---\n")
     lockout = False  # Reset lockout after LED cycle
 
 def pressed(button):
@@ -50,16 +52,18 @@ def pressed(button):
     lockout = True  # Set lockout to prevent simultaneous scoring
 
     if button.pin.number == 3:
+        print(f"{p1} scored !!!!\n")
         p1_score += 1
     else:
+        print(f"{p2} scored !!!!\n")
         p2_score += 1
     print_scoreboard(p1_score, p2_score)
     
     if p1_score == 3:
-        print(f"{p1} won the game")
+        print(f"🏆🏆🏆🏆🏆 {p1} won the game 🏆🏆🏆🏆🏆") 
         exit(0)
     elif p2_score == 3:
-        print(f"{p2} won the game")
+        print(f"🏆🏆🏆🏆🏆 {p2} won the game 🏆🏆🏆🏆🏆")
         exit(0)
     
     led_on()
