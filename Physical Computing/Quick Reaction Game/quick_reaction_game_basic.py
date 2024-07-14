@@ -8,7 +8,6 @@ p1 = input("Enter player 1's name: ")
 p2 = input("Enter player 2's name: ")
 
 # Initializing the components and the pins
-
 green_led = LED(4)
 p1_button = Button(3)
 p2_button = Button(2)
